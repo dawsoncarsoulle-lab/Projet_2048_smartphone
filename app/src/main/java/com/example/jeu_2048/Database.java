@@ -140,6 +140,17 @@ public class Database extends SQLiteOpenHelper {
             db.execSQL(CREATE_POSTS_TABLE);
         }
 
+    public int getBestScore() {
+        int bestScore = 0;
+        SQLiteDatabase db = this.getReadableDatabase();
+        android.database.Cursor cursor = db.rawQuery("SELECT MAX(" + KEY_MATCH_POINTS + ") FROM " + TABLE_MATCHES, null);
+        if (cursor.moveToFirst()) {
+            bestScore = cursor.getInt(0);
+        }
+        cursor.close();
+        return bestScore;
+    }
+
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {}
 }
