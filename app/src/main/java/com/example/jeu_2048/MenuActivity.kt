@@ -41,6 +41,7 @@ class MenuActivity : Activity() {
 
         btnLeaderboard.setOnClickListener {
             Toast.makeText(this, "Classement bientôt disponible", Toast.LENGTH_SHORT).show()
+            // TODO: faire la query pour : Affichage des scores classés du plus élevé au plus bas. 
         }
 
         btnSettings.setOnClickListener {
