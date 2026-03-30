@@ -14,6 +14,9 @@ interface MatchDao {
     @Query("SELECT * from matches WHERE id = :matchId")
     fun selectGame(matchId: Int): Match
 
+    @Query("SELECT MAX(score) FROM matches")
+    fun getBestScore(): Int
+
     @Update
     fun updatePoints(match: Match)
 

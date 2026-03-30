@@ -8,6 +8,7 @@ import android.view.MotionEvent
 import android.view.View
 import android.widget.LinearLayout
 import android.widget.Toast
+import com.example.jeu_2048.database.MatchDatabase
 
 class MenuActivity : Activity() {
 
@@ -15,6 +16,7 @@ class MenuActivity : Activity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu)
 
+        val db = MatchDatabase.getDatabase(this)
         val btnPlay = findViewById<LinearLayout>(R.id.btnPlay)
         val btnBestScore = findViewById<LinearLayout>(R.id.btnBestScore)
         val btnLeaderboard = findViewById<LinearLayout>(R.id.btnLeaderboard)
@@ -33,7 +35,8 @@ class MenuActivity : Activity() {
         }
 
         btnBestScore.setOnClickListener {
-            Toast.makeText(this, "best score pas encore dispo", Toast.LENGTH_SHORT).show()
+            val bestScore = db.matchDao().getBestScore()
+            Toast.makeText(this, "Meilleur score : $bestScore", Toast.LENGTH_SHORT).show()
         }
 
         btnLeaderboard.setOnClickListener {
