@@ -33,13 +33,7 @@ class MenuActivity : Activity() {
         }
 
         btnBestScore.setOnClickListener {
-            val db = Database.getInstance(this)
-            val bestScore = db.bestScore
-            AlertDialog.Builder(this)
-                .setTitle("Meilleur Score \uD83C\uDFC6") // Icône de coupe
-                .setMessage("Votre record absolu est de : $bestScore points !")
-                .setPositiveButton("Fermer", null)
-                .show()
+            Toast.makeText(this, "best score pas encore dispo", Toast.LENGTH_SHORT).show()
         }
 
         btnLeaderboard.setOnClickListener {

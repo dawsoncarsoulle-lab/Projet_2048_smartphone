@@ -11,7 +11,7 @@ class Game(private val activity: Activity) {
     private val gridCells = Array(4) { arrayOfNulls<TextView>(4) }
 
     private val gameId = 0
-    private val db = Database.getInstance(activity)
+    //private val db = Database.getInstance(activity)
     public var score = 0
     private lateinit var tvScore: TextView
 
@@ -27,7 +27,7 @@ class Game(private val activity: Activity) {
 
     fun start() {
         placeRandomInitialCells(2);
-        db.insertGameEntry(this);
+        //db.insertGameEntry(this);
 
 
         val mainLayout = activity.findViewById<View>(android.R.id.content)
@@ -123,7 +123,8 @@ class Game(private val activity: Activity) {
             updateUI()
         } else {
             if (isOver()) {
-                db.updateGameStateEnd(this);
+                //db.updateGameStateEnd(this);
+                // TODO: ajouter dans la base de données 
             }
         }
     }
@@ -179,7 +180,8 @@ class Game(private val activity: Activity) {
                 textView?.setTextColor(getTileTextColor(value))
             }
         }
-        db.updateCurrentPoints(this);
+        //db.updateCurrentPoints(this);
+        // TODO: update la base de données avec les pts actuelle 
     }
     private fun getTileColor(value: Int): Int {
         return when (value) {
