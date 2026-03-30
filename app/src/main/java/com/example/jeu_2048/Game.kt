@@ -1,18 +1,16 @@
 package com.example.jeu_2048
 
-import android.app.Activity
 import android.view.View
-import android.content.Context
 import android.widget.TextView
+import com.example.jeu_2048.database.MatchDatabase
+import com.example.jeu_2048.database.entities.Match
 import kotlin.random.Random
 
-class Game(private val activity: Activity) {
+class Game(private val activity: MainActivity, private val db: MatchDatabase, private val id : Int? = null) {
     private var gridMatrix = Array(4) { IntArray(4) { 0 } }
     private val gridCells = Array(4) { arrayOfNulls<TextView>(4) }
-
-    private val gameId = 0
-    //private val db = Database.getInstance(activity)
     public var score = 0
+    var currentMatch : Match = Match(score = score, matchStart = System.currentTimeMillis(), isRunning = true)
     private lateinit var tvScore: TextView
 
     init {
@@ -23,12 +21,10 @@ class Game(private val activity: Activity) {
                 gridCells[i][j] = activity.findViewById(cellID)
             }
         }
+
     }
-
-    fun start() {
+    private fun startup() {
         placeRandomInitialCells(2);
-        //db.insertGameEntry(this);
-
 
         val mainLayout = activity.findViewById<View>(android.R.id.content)
         mainLayout.setOnTouchListener(object : OnSwipeTouchListener(activity) {
@@ -38,7 +34,17 @@ class Game(private val activity: Activity) {
             override fun onSwipeRight() { move("RIGHT") }
         })
     }
-
+    fun start() {
+        if (id == null) {
+            val newId = db.matchDao().insertGame(currentMatch)
+            currentMatch.id = newId.toInt()
+            startup()
+        } else {
+            currentMatch = db.matchDao().selectGame(id)
+            score = currentMatch.score
+            updateUI()
+        }
+    }
     private fun placeRandomInitialCells(count : Int) {
         for (a in 1..count) {
             val row = Random.nextInt(4)
@@ -49,43 +55,22 @@ class Game(private val activity: Activity) {
         }
         updateUI()
     }
-
     private fun isOver() : Boolean {
-        // all blocks full and cannot move in any direction
         for (i in 0..3) {
             for (j in 0..3) {
-                if (gridMatrix[i][j] != 0) return false
+                if (gridMatrix[i][j] == 0) return false
             }
         }
-        // move in any direction produces a change
-        val allMoves = listOf("LEFT", "RIGHT", "UP", "DOWN");
-        for (direction in allMoves) {
-            for (i in 0..3) {
-                val line = mutableListOf<Int>()
-                for (j in 0..3) {
-                    when (direction) {
-                        "LEFT", "RIGHT" -> line.add(gridMatrix[i][j])
-                        "UP", "DOWN" -> line.add(gridMatrix[j][i])
-                    }
-                }
 
-                if (direction == "RIGHT" || direction == "DOWN") line.reverse()
-                val newLine = slideAndMerge(line)
-                if (direction == "RIGHT" || direction == "DOWN") newLine.reverse()
-
-                for (j in 0..3) {
-                    val oldValue = when (direction) {
-                        "LEFT", "RIGHT" -> gridMatrix[i][j]
-                        else -> gridMatrix[j][i]
-                    }
-                    val newValue = newLine[j]
-                    if (oldValue != newValue) return true;
-                }
+        for (i in 0..3) {
+            for (j in 0..3) {
+                val current = gridMatrix[i][j]
+                if (i < 3 && current == gridMatrix[i + 1][j]) return false
+                if (j < 3 && current == gridMatrix[i][j + 1]) return false
             }
         }
-        return false;
+        return true
     }
-
     private fun move(direction: String) {
         var hasMoved = false
 
@@ -123,8 +108,9 @@ class Game(private val activity: Activity) {
             updateUI()
         } else {
             if (isOver()) {
-                //db.updateGameStateEnd(this);
-                // TODO: ajouter dans la base de données 
+                currentMatch.isRunning = false
+                currentMatch.matchEnd = System.currentTimeMillis()
+                db.matchDao().updateGameEnd(currentMatch)
             }
         }
     }
@@ -180,8 +166,10 @@ class Game(private val activity: Activity) {
                 textView?.setTextColor(getTileTextColor(value))
             }
         }
-        //db.updateCurrentPoints(this);
-        // TODO: update la base de données avec les pts actuelle 
+        currentMatch.score = score
+        if (currentMatch.id != 0) {
+            db.matchDao().updatePoints(currentMatch)
+        }
     }
     private fun getTileColor(value: Int): Int {
         return when (value) {
