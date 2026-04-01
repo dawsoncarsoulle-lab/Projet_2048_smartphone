@@ -106,6 +106,7 @@ class Game(private val activity: MainActivity, private val db: MatchDatabase, pr
 
         if (hasMoved) {
             spawnRandomTile()
+            android.media.MediaPlayer.create(activity, R.raw.sound_effect).start()
             updateUI()
         } else {
             if (isOver()) {
