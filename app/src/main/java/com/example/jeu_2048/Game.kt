@@ -56,6 +56,7 @@ class Game(private val activity: MainActivity, private val db: MatchDatabase, pr
         updateUI()
     }
     private fun isOver() : Boolean {
+        if (score >= 2048) return true;
         for (i in 0..3) {
             for (j in 0..3) {
                 if (gridMatrix[i][j] == 0) return false
@@ -110,6 +111,7 @@ class Game(private val activity: MainActivity, private val db: MatchDatabase, pr
             if (isOver()) {
                 currentMatch.isRunning = false
                 currentMatch.matchEnd = System.currentTimeMillis()
+                currentMatch.score = score;
                 db.matchDao().updateGameEnd(currentMatch)
             }
         }
