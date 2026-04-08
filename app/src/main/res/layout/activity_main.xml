@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center"
-        android:layout_marginBottom="32dp">
+        android:layout_marginBottom="16dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -20,6 +20,7 @@
             android:text="2048"
             android:textSize="48sp"
             android:textStyle="bold"
+            android:layout_marginEnd="32dp"
             android:textColor="@color/text_dark"/>
 
         <LinearLayout
@@ -46,6 +47,15 @@
                 android:textStyle="bold"/>
         </LinearLayout>
     </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_restart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:text="Recommencer"
+        android:textColor="@android:color/white"
+        android:backgroundTint="@color/tile_32" />
 
     <GridLayout android:id="@+id/game_grid"
         android:layout_width="match_parent"

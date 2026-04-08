@@ -83,7 +83,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="MEILLEUR SCORE"
+                android:text="STATISTIQUES"
                 android:textColor="#FFFFFF"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -92,7 +92,7 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_marginEnd="16dp"
-                android:src="@drawable/outline_trophy_24"
+                android:src="@drawable/outline_score_24"
                 android:tint="#FFFFFF" />
         </LinearLayout>
 
@@ -131,7 +131,7 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_marginEnd="16dp"
-                android:src="@drawable/outline_score_24"
+                android:src="@drawable/outline_trophy_24"
                 android:tint="#FFFFFF" />
         </LinearLayout>
 
