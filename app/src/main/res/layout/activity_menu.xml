@@ -57,6 +57,33 @@
                 android:tint="#FFFFFF" />
         </LinearLayout>
 
+        <Button
+            android:id="@+id/btn_challenge"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="16dp"
+            android:text="MODE DÉFI (CHRONO)"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="@color/tile_128" />
+
+        <Button
+            android:id="@+id/btn_multiplayer"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="16dp"
+            android:text="MULTIJOUEUR LOCAL"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="@color/tile_64" />
+
+        <Button
+            android:id="@+id/btn_tutorial"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="16dp"
+            android:text="COMMENT JOUER ?"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="@color/tile_4" />
+
         <LinearLayout
             android:id="@+id/btnBestScore"
             android:layout_width="match_parent"

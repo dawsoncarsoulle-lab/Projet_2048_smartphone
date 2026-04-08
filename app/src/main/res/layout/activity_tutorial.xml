@@ -5,12 +5,12 @@
     android:orientation="vertical"
     android:padding="32dp"
     android:background="@color/background_app"
-    android:gravity="center_horizontal">
+    android:gravity="center">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Statistiques"
+        android:text="TUTORIEL"
         android:textSize="32sp"
         android:textStyle="bold"
         android:textColor="@color/text_dark"
@@ -18,53 +18,49 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="300dp"
         android:orientation="vertical"
-        android:background="@color/cell_empty"
-        android:padding="24dp"
+        android:background="@color/background_grid"
+        android:gravity="center"
+        android:padding="16dp"
         android:layout_marginBottom="32dp">
 
         <TextView
-            android:id="@+id/tv_total_games"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Parties jouées : 0"
-            android:textSize="20sp"
+            android:id="@+id/tv_tuto_animation"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@color/tile_4"
+            android:gravity="center"
+            android:text="2"
             android:textColor="@color/text_dark"
-            android:layout_marginBottom="16dp"/>
+            android:textSize="36sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="24dp"/>
 
         <TextView
-            android:id="@+id/tv_best_score"
+            android:id="@+id/tv_tuto_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Meilleur score : 0"
-            android:textSize="20sp"
+            android:text="Glissez l'écran vers le HAUT, le BAS, la GAUCHE ou la DROITE pour déplacer les tuiles."
+            android:textSize="18sp"
             android:textColor="@color/text_dark"
-            android:layout_marginBottom="16dp"/>
-
-        <TextView
-            android:id="@+id/tv_games_won"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Parties gagnées : 0"
-            android:textSize="20sp"
-            android:textColor="@color/text_dark"/>
+            android:textAlignment="center"/>
     </LinearLayout>
 
     <Button
-        android:id="@+id/btn_share_score"
+        android:id="@+id/btn_tuto_next"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:text="PARTAGER MON RECORD"
+        android:text="SUIVANT"
         android:textColor="@android:color/white"
         android:backgroundTint="@color/tile_128"
         android:layout_marginBottom="16dp"/>
 
     <Button
-        android:id="@+id/btn_back_stats"
+        android:id="@+id/btn_back_tuto"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:text="RETOUR"
+        android:text="RETOUR AU MENU"
         android:textColor="@android:color/white"
         android:backgroundTint="@color/tile_32" />
 </LinearLayout>
