@@ -6,10 +6,12 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.jeu_2048.database.entities.Match
 import com.example.jeu_2048.database.daos.MatchDao
+import com.example.jeu_2048.database.daos.StatisticsDao
 
 @Database(entities = [Match::class], version = 1)
 abstract class MatchDatabase : RoomDatabase() {
     abstract fun matchDao(): MatchDao
+    abstract fun statisticsDao(): StatisticsDao
 
     companion object {
         @Volatile

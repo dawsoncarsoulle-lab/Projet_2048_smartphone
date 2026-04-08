@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="32dp"
+    android:background="@color/background_app">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Paramètres"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:textColor="@color/text_dark"
+        android:layout_marginBottom="48dp"
+        android:layout_gravity="center_horizontal"/>
+
+    <Switch
+        android:id="@+id/switch_music"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Musique de fond"
+        android:textSize="20sp"
+        android:textColor="@color/text_dark"
+        android:layout_marginBottom="32dp"/>
+
+    <Switch
+        android:id="@+id/switch_sounds"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Effets sonores"
+        android:textSize="20sp"
+        android:textColor="@color/text_dark"
+        android:layout_marginBottom="64dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Taille de la grille"
+        android:textSize="20sp"
+        android:textColor="@color/text_dark"
+        android:layout_marginBottom="8dp"/>
+
+    <RadioGroup
+        android:id="@+id/radioGroup_size"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="32dp">
+
+        <RadioButton
+            android:id="@+id/rb_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="3x3"
+            android:textColor="@color/text_dark" />
+
+        <RadioButton
+            android:id="@+id/rb_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="4x4"
+            android:textColor="@color/text_dark" />
+
+        <RadioButton
+            android:id="@+id/rb_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="5x5"
+            android:textColor="@color/text_dark" />
+
+        <RadioButton
+            android:id="@+id/rb_6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="6x6"
+            android:textColor="@color/text_dark" />
+    </RadioGroup> <Switch
+    android:id="@+id/switch_animations"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Animations des tuiles"
+    android:textSize="20sp"
+    android:textColor="@color/text_dark"
+    android:layout_marginBottom="32dp"/>
+
+    <Switch
+        android:id="@+id/switch_theme"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Mode Sombre"
+        android:textSize="20sp"
+        android:textColor="@color/text_dark"
+        android:layout_marginBottom="64dp"/>
+
+    <Button
+        android:id="@+id/btn_back"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="RETOUR"
+        android:textColor="@android:color/white"
+        android:backgroundTint="@color/tile_32" />
+</LinearLayout>

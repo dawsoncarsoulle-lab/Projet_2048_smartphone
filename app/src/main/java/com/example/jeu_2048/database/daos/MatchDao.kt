@@ -22,4 +22,17 @@ interface MatchDao {
 
     @Update
     fun updateGameEnd(match: Match)
+
+    @Query("SELECT * FROM matches WHERE is_running = 1 ORDER BY id DESC LIMIT 1")
+    fun getRunningMatch(): Match?
+
+    @Query("SELECT * FROM matches ORDER BY score DESC")
+    fun getAllMatchesDescending(): List<Match>
+
+    @Query("DELETE FROM matches")
+    fun resetLeaderboard()
+
+    // Annule la partie en cours si on change la taille de la grille
+    @Query("UPDATE matches SET is_running = 0 WHERE is_running = 1")
+    fun cancelRunningMatches()
 }

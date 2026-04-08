@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="background_app">#121212</color> <color name="text_dark">#F9F6F2</color> <color name="background_grid">#4A433B</color> <color name="cell_empty">#332D26</color> </resources>

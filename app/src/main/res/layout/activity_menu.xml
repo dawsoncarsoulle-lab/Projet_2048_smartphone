@@ -57,6 +57,33 @@
                 android:tint="#FFFFFF" />
         </LinearLayout>
 
+        <Button
+            android:id="@+id/btn_challenge"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="16dp"
+            android:text="MODE DÉFI (CHRONO)"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="@color/tile_128" />
+
+        <Button
+            android:id="@+id/btn_multiplayer"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="16dp"
+            android:text="MULTIJOUEUR LOCAL"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="@color/tile_64" />
+
+        <Button
+            android:id="@+id/btn_tutorial"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="16dp"
+            android:text="COMMENT JOUER ?"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="@color/tile_4" />
+
         <LinearLayout
             android:id="@+id/btnBestScore"
             android:layout_width="match_parent"
@@ -83,7 +110,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="MEILLEUR SCORE"
+                android:text="STATISTIQUES"
                 android:textColor="#FFFFFF"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -92,7 +119,7 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_marginEnd="16dp"
-                android:src="@drawable/outline_trophy_24"
+                android:src="@drawable/outline_score_24"
                 android:tint="#FFFFFF" />
         </LinearLayout>
 
@@ -131,7 +158,7 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_marginEnd="16dp"
-                android:src="@drawable/outline_score_24"
+                android:src="@drawable/outline_trophy_24"
                 android:tint="#FFFFFF" />
         </LinearLayout>
 

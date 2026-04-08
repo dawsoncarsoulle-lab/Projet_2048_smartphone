@@ -15,5 +15,7 @@ data class Match(
     @ColumnInfo(name = "match_end")
     var matchEnd: Long? = null,
     @ColumnInfo(name = "is_running")
-    var isRunning: Boolean = false
+    var isRunning: Boolean = false,
+    @ColumnInfo(name = "grid_state")
+    var gridState: String = "" // NOUVELLE COLONNE POUR LA GRILLE
 )
